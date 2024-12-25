@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		24A443D01E4F6122634A0D18 /* Pods_rx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F2E71439255380BA50F517B /* Pods_rx.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		7F2E71439255380BA50F517B /* Pods_rx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABF7C1B6808323E4D0C60846 /* Pods-rx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rx.release.xcconfig"; path = "Target Support Files/Pods-rx/Pods-rx.release.xcconfig"; sourceTree = "<group>"; };
+		D059A85B265F2C304862B61E /* Pods-rx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rx.debug.xcconfig"; path = "Target Support Files/Pods-rx/Pods-rx.debug.xcconfig"; sourceTree = "<group>"; };
 		DE70AB982D1A5BF700E67387 /* rx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A443D01E4F6122634A0D18 /* Pods_rx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		283F9F70D1D4F16A6814AA9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D059A85B265F2C304862B61E /* Pods-rx.debug.xcconfig */,
+				ABF7C1B6808323E4D0C60846 /* Pods-rx.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3F17B232EAED97ECE0AFBB47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F2E71439255380BA50F517B /* Pods_rx.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DE70AB8F2D1A5BF700E67387 = {
 			isa = PBXGroup;
 			children = (
 				DE70AB9A2D1A5BF700E67387 /* rx */,
 				DE70AB992D1A5BF700E67387 /* Products */,
+				283F9F70D1D4F16A6814AA9C /* Pods */,
+				3F17B232EAED97ECE0AFBB47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE70ABAB2D1A5BF900E67387 /* Build configuration list for PBXNativeTarget "rx" */;
 			buildPhases = (
+				E7425603235715515BD65BDD /* [CP] Check Pods Manifest.lock */,
 				DE70AB942D1A5BF700E67387 /* Sources */,
 				DE70AB952D1A5BF700E67387 /* Frameworks */,
 				DE70AB962D1A5BF700E67387 /* Resources */,
+				2F14820FD2C824436FF3C9E7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				DE70AB9A2D1A5BF700E67387 /* rx */,
 			);
 			name = rx;
-			packageProductDependencies = (
-			);
 			productName = rx;
 			productReference = DE70AB982D1A5BF700E67387 /* rx.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F14820FD2C824436FF3C9E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rx/Pods-rx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-rx/Pods-rx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-rx/Pods-rx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7425603235715515BD65BDD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-rx-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE70AB942D1A5BF700E67387 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,16 +209,17 @@
 /* Begin XCBuildConfiguration section */
 		DE70ABAC2D1A5BF900E67387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D059A85B265F2C304862B61E /* Pods-rx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -167,16 +237,17 @@
 		};
 		DE70ABAD2D1A5BF900E67387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF7C1B6808323E4D0C60846 /* Pods-rx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = rx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
